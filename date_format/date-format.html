@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CrossKnowledge - Code challenge</title>
+</head>
+<script>
+	var count = 0;
+	let nowDates = []
+	function display_time () {
+		const MS_PER_MINUTE = 60000
+		const NOW = new Date()
+		let minutes = [0, 1, 30, 60, 6 * 60, 23 * 60, 24 * 60]
+		let dates = []
+
+		function updateClock (item) {
+			if(item != undefined) {
+				
+				let el = document.createElement("div")
+				el.innerHTML = "Started "
+				let dt = document.createElement('span')
+				dt.className = 'js-date-format'
+				nowDates[count] = item;
+				difference = timeDifference(new Date(Date.now()),item)
+				dt.innerHTML = difference
+				el.appendChild(dt)
+				document.body.appendChild(el)
+				count ++
+			} 
+			else {
+				let allSpans = document.getElementsByTagName('span')
+				for(var i = 0; i < allSpans.length; i ++) {
+					let innerSpans = allSpans
+					for(var j = 0; j < nowDates.length ; j ++) {
+						difference = timeDifference(new Date(Date.now()),nowDates[j])
+						innerSpans[j].innerHTML = difference
+					}
+				}
+				
+			}
+			
+			
+		}
+		minutes.forEach((i) => dates.push(new Date(NOW - i * MS_PER_MINUTE)))
+		dates.forEach((item) => {
+			updateClock(item);
+			var interval = setInterval(updateClock, 1000);
+		});
+		
+	}
+
+	function timeDifference(current, previous) {
+
+		var msPerMinute = 60 * 1000;
+		var msPerHour = msPerMinute * 60;
+		var msPerDay = msPerHour * 24;
+		var msPerMonth = msPerDay * 30;
+		var msPerYear = msPerDay * 365;
+
+		var elapsed = current - previous;
+
+		if (elapsed < msPerMinute) {
+			return Math.round(elapsed/1000) + ' seconds ago';   
+		}
+
+		else if (elapsed < msPerHour) {
+			return Math.round(elapsed/msPerMinute) + ' minutes ago';   
+		}
+
+		else if (elapsed < msPerDay ) {
+			return Math.round(elapsed/msPerHour ) + ' hours ago';   
+		}
+
+		else if (elapsed < msPerMonth) {
+			return 'approximately ' + Math.round(elapsed/msPerDay) + ' days ago';   
+		}
+
+		else if (elapsed < msPerYear) {
+			return 'approximately ' + Math.round(elapsed/msPerMonth) + ' months ago';   
+		}
+
+		else {
+			return 'approximately ' + Math.round(elapsed/msPerYear ) + ' years ago';   
+		}
+	}
+
+</script>
+<body onload=display_time()></body>
+</html>

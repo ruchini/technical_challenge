@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CrossKnowledge - Code challenge</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet"> 
+	<style>
+		.block {
+			background-color: black;
+		}
+
+		.widget {
+			max-width:400px;
+			margin-left: 30%;
+			margin-right: 30%;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			background-color: white;
+			
+		}
+
+		.widget__block {
+			height:100%;
+			margin-right: 10px;
+			margin-left: 10px;
+			border: black;
+			border-width: 2ch;
+			max-width:400px;
+			padding-bottom: 10px;
+			background-color : lightgrey;
+		}
+
+		.widget__header {
+			display:block;
+			margin-top: 10px;
+		}
+
+		.widget__title {
+			padding-left: 5px;
+			margin-top: 10px;
+			float: left;
+		}
+
+		.widget__icon {
+			float: right;
+			padding-right: 5px;
+			margin-bottom: 5px;
+			margin-top: 10px;
+		}
+
+		.widget__icon--text {
+			width: 30px;
+		}
+
+		.widget__icon--image {
+			width: 30px;
+		}
+
+		.widget__container {
+			position: relative;
+		}
+
+		.widget__image {
+			display:block;
+			width: 100%;
+			max-height: 480px;
+		}
+
+		.widget__button {
+			position: absolute;
+			top: 95%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			background-color: rgb(148, 143, 143);
+			color:black;
+			padding: 12px 24px;
+			border: none;
+			border-radius: 12px;
+			font-size: 14px;
+			text-decoration:none;
+		}
+
+		.widget__footer {
+			display:block;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+
+	</style>
+</head>
+<body class="block">
+	<div class="widget">
+		<article class="widget__block">
+			<header class="widget__header">
+				<div class="widget__title">
+					<div>
+						Avengers: Infinity War
+					</div>
+					<div>
+						156 minutes
+					</div>
+				</div>
+				<div class="widget__icon">
+					<div class="widget__icon widget__icon--text"> 85% </div><img class="widget__icon widget__icon--image" src="https://www.rottentomatoes.com/assets/pizza-pie/images/icons/global/cf-lg.3c29eff04f2.png" alt="">
+				</div>
+			</header>
+	
+			<div class="widget__container">
+				<img class="widget__image" src="https://i.ibb.co/9tLcR7s/avengers.jpg">
+				<a class="widget__button" href="https://www.rottentomatoes.com/m/avengers_infinity_war" target="_blank">
+					Check review
+				</a>
+			</div>
+	
+			<footer class="widget__footer">
+				<p>
+					An unprecedented cinematic journey ten years in the making and spanning the entire Marvel Cinematic Universe, Marvel Studios' "Avengers: Infinity War" brings to the screen the ultimate, deadliest showdown of all time. The Avengers and their Super Hero allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe. 
+				</p>
+			</footer>
+		</article>
+	</div>
+</body>
+</html>
